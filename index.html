@@ -79,6 +79,35 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    .lightbox:target {
+      display: flex;
     }
 
     .footer {
@@ -119,57 +148,57 @@
     <div id="img-wedding" class="gallery-section">
       <h2 class="gallery-title">Wedding Photography</h2>
       <div class="gallery-grid">
-        <img src="https://via.placeholder.com/400x300?text=Wedding+1" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Wedding+2" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Wedding+3" alt="">
+        <a href="#lightbox1"><img src="IMG-20250618-WA0010.jpg" alt=""></a>
       </div>
     </div>
 
     <div id="img-corporate" class="gallery-section">
       <h2 class="gallery-title">Corporate Events</h2>
       <div class="gallery-grid">
-        <img src="https://via.placeholder.com/400x300?text=Corporate+1" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Corporate+2" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Corporate+3" alt="">
+        <a href="#lightbox2"><img src="IMG-20250618-WA0011.jpg" alt=""></a>
       </div>
     </div>
 
     <div id="img-fashion" class="gallery-section">
       <h2 class="gallery-title">Fashion Photography</h2>
       <div class="gallery-grid">
-        <img src="https://via.placeholder.com/400x300?text=Fashion+1" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Fashion+2" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Fashion+3" alt="">
+        <a href="#lightbox3"><img src="IMG-20250618-WA0012.jpg" alt=""></a>
+        <a href="#lightbox4"><img src="IMG-20250618-WA0013.jpg" alt=""></a>
       </div>
     </div>
 
     <div id="img-portrait" class="gallery-section">
       <h2 class="gallery-title">Portrait Sessions</h2>
       <div class="gallery-grid">
-        <img src="https://via.placeholder.com/400x300?text=Portrait+1" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Portrait+2" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Portrait+3" alt="">
+        <a href="#lightbox5"><img src="IMG-20250618-WA0014.jpg" alt=""></a>
       </div>
     </div>
 
     <div id="img-events" class="gallery-section">
       <h2 class="gallery-title">Special Events</h2>
       <div class="gallery-grid">
-        <img src="https://via.placeholder.com/400x300?text=Events+1" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Events+2" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Events+3" alt="">
+        <a href="#lightbox6"><img src="IMG-20250618-WA0015.jpg" alt=""></a>
       </div>
     </div>
 
     <div id="img-studio" class="gallery-section">
       <h2 class="gallery-title">Studio Services</h2>
       <div class="gallery-grid">
-        <img src="https://via.placeholder.com/400x300?text=Studio+1" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Studio+2" alt="">
-        <img src="https://via.placeholder.com/400x300?text=Studio+3" alt="">
+        <a href="#lightbox7"><img src="IMG-20250618-WA0016.jpg" alt=""></a>
+        <a href="#lightbox8"><img src="IMG-20250618-WA0017.jpg" alt=""></a>
       </div>
     </div>
   </div>
+
+  <!-- Lightboxes -->
+  <div id="lightbox1" class="lightbox"><a href="#"><img src="IMG-20250618-WA0010.jpg" alt=""></a></div>
+  <div id="lightbox2" class="lightbox"><a href="#"><img src="IMG-20250618-WA0011.jpg" alt=""></a></div>
+  <div id="lightbox3" class="lightbox"><a href="#"><img src="IMG-20250618-WA0012.jpg" alt=""></a></div>
+  <div id="lightbox4" class="lightbox"><a href="#"><img src="IMG-20250618-WA0013.jpg" alt=""></a></div>
+  <div id="lightbox5" class="lightbox"><a href="#"><img src="IMG-20250618-WA0014.jpg" alt=""></a></div>
+  <div id="lightbox6" class="lightbox"><a href="#"><img src="IMG-20250618-WA0015.jpg" alt=""></a></div>
+  <div id="lightbox7" class="lightbox"><a href="#"><img src="IMG-20250618-WA0016.jpg" alt=""></a></div>
+  <div id="lightbox8" class="lightbox"><a href="#"><img src="IMG-20250618-WA0017.jpg" alt=""></a></div>
 
   <div class="footer">
     <p>&copy; 2023 INCYTE UGANDA. All rights reserved.</p>
@@ -187,15 +216,10 @@
       button.addEventListener('click', () => {
         const targetId = `img-${button.id}`;
         sections.forEach(section => {
-          if (section.id === targetId) {
-            section.style.display = section.style.display === 'block' ? 'none' : 'block';
-          } else {
-            section.style.display = 'none';
-          }
+          section.style.display = section.id === targetId ? 'block' : 'none';
         });
       });
     });
   </script>
-
 </body>
-</html>
+  </html>
